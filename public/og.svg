@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#1C1C1C"/>
+  <rect x="80" y="80" width="80" height="8" fill="#FFD60A"/>
+  <text
+    x="80"
+    y="160"
+    fill="#FFD60A"
+    font-family="Archivo, Helvetica, Arial, sans-serif"
+    font-size="22"
+    font-weight="800"
+    letter-spacing="6"
+  >SCAD SCHOOL OF CREATIVE TECHNOLOGY</text>
+  <text
+    x="80"
+    y="320"
+    fill="#F2F2F2"
+    font-family="Archivo, Helvetica, Arial, sans-serif"
+    font-size="96"
+    font-weight="900"
+  >Build Tomorrow.</text>
+  <text
+    x="80"
+    y="400"
+    fill="#C8C8C8"
+    font-family="Archivo, Helvetica, Arial, sans-serif"
+    font-size="28"
+    font-weight="400"
+  >Fund AI and robotics education at SCAD.</text>
+  <text
+    x="80"
+    y="540"
+    fill="#8A8A8A"
+    font-family="Archivo, Helvetica, Arial, sans-serif"
+    font-size="22"
+    font-weight="600"
+  >STEC Technology Fund</text>
+</svg>

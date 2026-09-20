@@ -1,0 +1,161 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ground: #1c1c1c;
+  --color-surface: #262626;
+  --color-rule: #333333;
+  --color-ink: #f2f2f2;
+  --color-mute: #c8c8c8;
+  --color-dim: #8a8a8a;
+  --color-accent: #ffd60a;
+  --color-cta: #ffffff;
+  --color-cta-ink: #1c1c1c;
+  --font-sans: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --radius-cta: 4px;
+  --max-page: 80rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ground);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-cta-ink);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  background: var(--color-cta);
+  color: var(--color-cta-ink);
+  font-weight: 800;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.page-gutter {
+  width: min(var(--max-page), calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .page-gutter {
+    width: min(var(--max-page), calc(100% - 160px));
+  }
+}
+
+.display {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  font-size: clamp(2.75rem, 12vw, 4.25rem);
+}
+
+@media (min-width: 768px) {
+  .display {
+    font-size: clamp(4.25rem, 8.2vw, 7rem);
+  }
+}
+
+.eyebrow {
+  display: block;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.188rem;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .eyebrow {
+    font-size: 0.875rem;
+  }
+}
+
+.section-rule {
+  border-top: 2px solid var(--color-accent);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease,
+    border-color 120ms ease,
+    opacity 120ms ease;
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.cta--primary {
+  background: var(--color-cta);
+  color: var(--color-cta-ink);
+  border-color: var(--color-cta);
+}
+
+.cta--primary:hover {
+  background: var(--color-ink);
+}
+
+.quiet-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  color: var(--color-mute);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.quiet-link:hover {
+  color: var(--color-ink);
+}
+
+.quiet-link:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
