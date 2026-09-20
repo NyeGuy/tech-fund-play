@@ -1,0 +1,104 @@
+---
+import {
+  HARDWARE_FORM_URL,
+  TECH_FUND_URL,
+  copy,
+  isHttpUrl,
+  isPlaceholderUrl,
+  whatGiftsBuy,
+} from '../config';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import GoalStrip from '../components/GoalStrip.astro';
+
+const hardwareIsLive = isHttpUrl(HARDWARE_FORM_URL) && !isPlaceholderUrl(HARDWARE_FORM_URL);
+---
+
+<BaseLayout
+  title="Build Tomorrow. — SCAD School of Creative Technology"
+  description={copy.sub}
+  ogImage="/og.svg"
+>
+  <section class="page-gutter pt-12 pb-10 md:pt-20 md:pb-16">
+    <Eyebrow>{copy.eyebrow}</Eyebrow>
+    <h1 class="display mt-5 max-w-5xl">{copy.h1}</h1>
+    <p class="mt-6 max-w-2xl text-lg md:text-xl text-mute leading-relaxed">
+      {copy.sub}
+    </p>
+    <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+      <Button href={TECH_FUND_URL} external>{copy.primaryCta}</Button>
+      <a
+        class="quiet-link"
+        href={HARDWARE_FORM_URL}
+        target={hardwareIsLive ? '_blank' : undefined}
+        rel={hardwareIsLive ? 'noopener noreferrer' : undefined}
+      >
+        {copy.secondaryCta}
+      </a>
+    </div>
+    <p class="mt-6 max-w-2xl text-sm text-dim leading-relaxed">
+      {copy.finePrint501}
+    </p>
+  </section>
+
+  <section class="page-gutter pb-16 md:pb-24" aria-labelledby="gifts-heading">
+    <div class="section-rule pt-8">
+      <Eyebrow>{copy.giftsEyebrow}</Eyebrow>
+      <h2 id="gifts-heading" class="mt-3 font-black text-3xl md:text-5xl tracking-tight">
+        {copy.giftsTitle}
+      </h2>
+    </div>
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      {
+        whatGiftsBuy.map((line, index) => (
+          <article class="bg-surface border-t-2 border-accent p-6 md:p-8">
+            <p class="eyebrow">{String(index + 1).padStart(2, '0')}</p>
+            <p class="mt-3 text-lg text-mute leading-relaxed">{line}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <GoalStrip />
+
+  <section
+    id="hardware"
+    class="page-gutter py-16 md:py-24"
+    aria-labelledby="hardware-heading"
+  >
+    <div class="section-rule pt-8">
+      <Eyebrow>{copy.hardwareEyebrow}</Eyebrow>
+      <h2 id="hardware-heading" class="mt-3 font-black text-3xl md:text-5xl tracking-tight">
+        {copy.hardwareTitle}
+      </h2>
+      <p class="mt-4 max-w-2xl text-mute leading-relaxed">{copy.hardwareBody}</p>
+      {
+        hardwareIsLive ? (
+          <p class="mt-8">
+            <a
+              class="quiet-link"
+              href={HARDWARE_FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {copy.secondaryCta}
+            </a>
+          </p>
+        ) : (
+          <p class="mt-8 text-dim font-semibold">{copy.hardwareSoon}</p>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="section-rule">
+    <div
+      class="page-gutter flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between md:py-16"
+    >
+      <p class="max-w-xl text-mute text-lg md:text-xl">{copy.closeNote}</p>
+      <Button href={TECH_FUND_URL} external>{copy.primaryCta}</Button>
+    </div>
+  </section>
+</BaseLayout>

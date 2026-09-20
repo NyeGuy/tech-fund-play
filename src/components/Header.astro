@@ -1,0 +1,20 @@
+---
+import { TECH_FUND_URL } from '../config';
+import Button from './Button.astro';
+---
+
+<header class="border-b border-rule">
+  <div
+    class="page-gutter flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between md:py-5"
+  >
+    <a
+      href="/"
+      class="font-black tracking-[0.12em] uppercase text-sm md:text-base text-ink no-underline hover:text-accent"
+    >
+      Build Tomorrow
+    </a>
+    <nav aria-label="Primary" class="flex flex-wrap items-center gap-x-5 gap-y-2">
+      <Button href={TECH_FUND_URL} external>Donate</Button>
+    </nav>
+  </div>
+</header>
